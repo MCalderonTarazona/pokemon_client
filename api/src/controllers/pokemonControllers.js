@@ -84,12 +84,55 @@ const  findPokemonsApi = async () => {
 
 }
 
-const getAllPokemons = async (req, res) => {
-  const pokemonsBD = await findPokemonsDB();
-  const pokemonsApi = await findPokemonsApi();
+const findAllPokemons = async (req, res) => {
+    try {
+        const pokemonsBD = await findPokemonsDB();
+        const pokemonsApi = await findPokemonsApi();
+        const allPokemons = [...pokemonsBD, ...pokemonsApi];
+        const {name} = req.query;
 
-  const allPokemons = [...pokemonsBD, ...pokemonsApi];  
-  res.status(200).json(allPokemons)
+        if(!name) {
+            res.status(200).json(allPokemons);
+        } else {
+            let pokemonDetail = allPokemons.filter(element => element.name.match(name.toLowerCase()));
+            if (pokemonDetail) {
+                res.status(200).json(pokemonDetail);
+            } else {
+                res.status(404).json({ message: 'No existe el pokemon con el nombre proporcionado' });
+            }
+        }    
+    } catch (error) {
+        res.status(500).json({ message: 'Problemas con la data de Pokemons' });
+    }
+
+  
+  
+};
+
+const findIdPokemons = async (req, res) => {
+    try {
+        const pokemonsBD = await findPokemonsDB();
+        const pokemonsApi = await findPokemonsApi();
+        const allPokemons = [...pokemonsBD, ...pokemonsApi];
+        const {idPokemon} = req.params;
+        let pokemonDetail = {};
+
+        for (const element of allPokemons) {
+            if (element.id === Number(idPokemon)) {
+                pokemonDetail = element;
+                break;
+            } 
+        }
+
+        if (pokemonDetail.id) {
+            res.status(200).json(pokemonDetail);
+        } else {
+            res.status(404).json({ message: 'No existe el pokemon con el id proporcionado' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'No existe el pokemon con el id proporcionado' });    
+    }
+    
 };
 
 const createPokemon = async (req, res) => {
@@ -100,17 +143,7 @@ const createPokemon = async (req, res) => {
         }
         const [newPokemon, created] = await Pokemon.findOrCreate({
             where: { name },
-            defaults: { 
-                id,
-                name,
-                image,
-                hp,
-                attack,
-                defense,
-                speed,
-                height,
-                weight
-            }
+            defaults: { id, name, image, hp, attack, defense, speed, height, weight }
         });
 
         if (!created){ res.status(404).send('El Pokemon ya existe');
@@ -131,5 +164,6 @@ const createPokemon = async (req, res) => {
 module.exports = {
     createPokemon,
     findPokemonsApi,
-    getAllPokemons
+    findAllPokemons,
+    findIdPokemons
 };
