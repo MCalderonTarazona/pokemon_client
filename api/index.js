@@ -18,11 +18,24 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
+const createRole = require('./src/controllers/roleControllers');
+const { findTypesApi } = require('./src/controllers/typesControllers');
+const { findPokemonsApi } = require('./src/controllers/pokemonControllers');
 const { conn } = require('./src/db.js');
+const PORT = 3001;
 
-// Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
+
+
+// Sincronizar la base de datos con los modelos
+conn.sync({ force: true }).then(async () => {
+    console.log('Database connected');
+    
+    await createRole();
+    await findTypesApi();
+    await findPokemonsApi();
+
+
+    server.listen(PORT, () => {
+      console.log('Server raised in port: ' + PORT);
+    });
 });

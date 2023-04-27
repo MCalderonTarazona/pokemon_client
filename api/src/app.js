@@ -2,9 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const routes = require('./routes/index.js');
-
-require('./db.js');
+const router = require('./routes/index.js');
 
 const server = express();
 
@@ -22,7 +20,16 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/', routes);
+server.use(express.json());
+server.use('/', router);
+
+/*conn.sync({ force: true }).then(()=>
+    console.log('Database connected'),
+    server.listen(PORT, () => {
+        console.log('Server raised in port: ' + PORT);
+        
+     })
+);*/
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
