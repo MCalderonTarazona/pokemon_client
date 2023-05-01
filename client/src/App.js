@@ -1,6 +1,8 @@
 import Cards from './components/Cards/Cards';
 import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser';
+import Nav from './components/Nav/Nav';
+import Search from './components/Search/Search';
 import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
@@ -24,10 +26,10 @@ function App() {
     }
   }
 
-  /*const logout = () => {
+  const logout = () => {
     setSuccess(false);
     navigate('/');
-  };*/
+  }
  
   useEffect(() => {
     !success && navigate('/');
@@ -45,11 +47,14 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path='/' element={<Login accessLogin={accessLogin}/>} />
-      <Route path='/home' element={<Cards />} />
-      <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
-    </Routes>
+    <div className='App'>
+      <Nav logout={logout}/>
+      <Routes>
+        <Route path='/' element={<Login accessLogin={accessLogin}/>} />
+        <Route path='/home' element={<><Cards /><Search /></>} />
+        <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
+      </Routes>
+    </div>
   );
 }
 
