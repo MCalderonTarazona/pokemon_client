@@ -3,24 +3,24 @@
     height: 6vh;
     width: 100vw;
     text-align: center;
-    background: #205b29;
+    background: #000;
 }
 
 .containerLeft {
-    background: #205b29;
+    background: #000;
     height: 6vh;
     width: 2vw;
     text-align: center;
 }
 
 .containerRight {
-    background: #205b29;
+    background: #000;
     height: 6vh;
     width: 2vw;
 }
 
 .containerCont {
-    background: #800000;
+    background: #e30000;
     height: 5vh;
     width: 96vw;
     text-align: center;

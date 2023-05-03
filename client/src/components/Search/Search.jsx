@@ -1,10 +1,12 @@
 import React from 'react';
 import style from './Search.module.css';
 import { useState } from 'react';
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faBroom } from '@fortawesome/free-solid-svg-icons';
 
 const Search = ({onSearch}) => {
+  const allCharacters  = useSelector(state => state.allCharacters);
 
   let [data, setData] = useState ({
     type: "1",

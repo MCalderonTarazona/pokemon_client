@@ -2,8 +2,18 @@ import React from 'react';
 import style from './Cards.module.css';
 import Detail from '../Detail/Detail';
 import Card from '../Card/Card';
+import Paginate from '../Paginate/Paginate';
+import { useSelector } from "react-redux";
 
-const Cards = ({characters, selection, onSearch}) => {
+const Cards = ({selection, onSearch}) => {
+  const allCharacters  = useSelector(state => state.allCharacters);
+  const numPage = useSelector(state => state.numPage);
+
+  let start = (numPage - 1) * 12;
+  let end = numPage * 12;
+
+  let cantPages = Math.ceil(allCharacters.length / 12);
+  let viewCharacters = allCharacters?.slice(start, end);
 
   return (
     <>
@@ -17,7 +27,7 @@ const Cards = ({characters, selection, onSearch}) => {
               <div className = {style.containerScreenInt}>
                 <div className = {style.containerCards}>
                   { selection === "1"
-                    ? characters.map((e) => {
+                    ? viewCharacters.map((e) => {
                       console.log(e.image);
                       return <Card
                       key={e.id} 
@@ -34,7 +44,7 @@ const Cards = ({characters, selection, onSearch}) => {
                       onSearch={onSearch}
                       />
                     })    
-                    : characters.map((e) => {
+                    : viewCharacters.map((e) => {
                       return <Detail
                       key={e.id} 
                       id={e.id}
@@ -52,6 +62,7 @@ const Cards = ({characters, selection, onSearch}) => {
                   }
                 </div>
               </div>
+              <div className = {style.containerPaginate}><Paginate cantPages={cantPages}></Paginate></div>
           </div>
       </div>
       <div className = {style.containerRight}>
@@ -59,6 +70,7 @@ const Cards = ({characters, selection, onSearch}) => {
         <div className = {style.containerRightDown}></div>
       </div>
     </div>
+    
     </>
   );
 }

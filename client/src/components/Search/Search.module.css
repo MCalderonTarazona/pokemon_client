@@ -4,11 +4,11 @@
     display: flex;
     height: 40vh;
     width: 100vw;
-    background: #205b29;
+    background: #000;
 }
 
 .containerLeft {
-    background: #800000;
+    background: #e30000;
     height: 33vh;
     width: 1.8vw;
     text-align: center;
@@ -17,7 +17,7 @@
 }
 
 .containerRight {
-    background: #800000;
+    background: #e30000;
     height: 33vh;
     width: 1.8vw;
     margin-left: 0.2vw;
@@ -25,7 +25,7 @@
 }
 
 .containerCont {
-    background: #9b111e;
+    background: #a01a0a;
     height: 33vh;
     width: 96vw;
     text-align: center;
@@ -151,14 +151,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #356f2e;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #356f2e;
     cursor: pointer;  
 }
@@ -172,14 +172,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #000000;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #000000;
     cursor: pointer;  
 }
@@ -193,14 +193,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #7d62ad;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #7d62ad;
     cursor: pointer;  
 }
@@ -214,14 +214,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #f4a900;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #f4a900;
     cursor: pointer;  
 }
@@ -235,14 +235,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #ff40ff;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #ff40ff; 
     cursor: pointer; 
 }
@@ -256,14 +256,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #800000;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #800000;
     cursor: pointer;  
 }
@@ -277,14 +277,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #ed1c24;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #ed1c24;
     cursor: pointer;  
 }
@@ -298,14 +298,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #4040ff;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #4040ff;
     cursor: pointer;  
 }
@@ -319,14 +319,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #094293;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #094293;
     cursor: pointer;  
 }
@@ -340,14 +340,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #008000;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #008000;
     cursor: pointer;  
 }
@@ -361,14 +361,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #e68d14;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #e68d14;
     cursor: pointer;  
 }
@@ -382,14 +382,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #83c9e9;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #83c9e9;
     cursor: pointer;  
 }
@@ -403,14 +403,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #a4a4a4;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #a4a4a4;
     cursor: pointer;  
 }
@@ -424,14 +424,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #7d2181;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #7d2181;
     cursor: pointer;  
 }
@@ -445,14 +445,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #e30052;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #e30052;
     cursor: pointer;  
 }
@@ -466,14 +466,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #927600;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #927600;
     cursor: pointer;  
 }
@@ -487,14 +487,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #727272;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #727272;
     cursor: pointer;  
 }
@@ -508,14 +508,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #002ecd;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #002ecd;
     cursor: pointer;  
 }
@@ -529,14 +529,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #009c8c;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #009c8c;
     cursor: pointer;  
 }
@@ -550,14 +550,14 @@
     justify-content: center;
     align-items: center;
     font-family: 'Bruno Ace SC', cursive;
-    height: 4.5vh;
-    width: 16.5vw;
+    height: 3.5vh;
+    width: 9vw;
+    margin-bottom: 1.5vh;
     font-size: 25px;
     color: beige;
-    margin-top: 0.6vh;
+    margin-top: 1vh;
     background: #955f20;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
     box-shadow: 0px 0px 10px 2px #955f20;
     cursor: pointer;  
 }

@@ -7,8 +7,19 @@ import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { allCharacters } from "./redux/Actions/actions";
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/pokemons`)
+      .then((results) => {
+        dispatch(allCharacters(results.data));
+      });
+  }, []);
 
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
@@ -46,7 +57,6 @@ function App() {
     }
   }
 
-  const [characters, setCharacters] = useState([]);
   const [selection, setSelection] = useState("1");
 
   const onSearch = async ({text,type}) => {
@@ -57,11 +67,9 @@ function App() {
    try {
        const { data } = await axios(`${URL}${text}`)
        if (type === "1") {
-          setCharacters([]);
-          setCharacters((characters) => [...characters, ...data]);
+          dispatch(allCharacters(data));
        } else {
-          setCharacters([]);
-          setCharacters((characters) => [characters = data]);
+          dispatch(allCharacters([data]));
        }
       } catch (error) {
         window.alert(error.response.data.msg);
@@ -73,7 +81,7 @@ function App() {
       <Nav logout={logout}/>
       <Routes>
         <Route path='/' element={<Login accessLogin={accessLogin}/>} />
-        <Route path='/home' element={<><Cards characters={characters} selection={selection} onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
+        <Route path='/home' element={<><Cards selection={selection} onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
         <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
       </Routes>
     </div>

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+
+.containerPaginate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5%;
+}
+
+.containerPaginatePrev {
+    display: flex;
+    margin: 0 2%;
+}
+.containerPaginateNext {
+    display: flex;
+    margin: 0 2%;
+}
+
+.containerContent{
+    font-family: 'Bruno Ace SC', cursive;
+    font-size: 20px;
+}
