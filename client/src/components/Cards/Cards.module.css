@@ -68,12 +68,12 @@
     border-radius: 10px;
     margin-left: 2.5%;
     border: 2px solid #2AAAE0;
-    box-shadow: 0px 0px 10px 5px #2AAAE0;
+    box-shadow: 0px 0px 30px 5px #2AAAE0;
 }
 
 .containerCards {
-    background: green;
-    height: 150px;
-    width: 150px; 
-    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
+

@@ -1,8 +1,8 @@
 import Cards from './components/Cards/Cards';
 import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser';
-import Nav from './components/Nav/Nav';
 import Search from './components/Search/Search';
+import Nav from './components/Nav/Nav';
 import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
@@ -46,12 +46,34 @@ function App() {
     }
   }
 
+  const [characters, setCharacters] = useState([]);
+  const [selection, setSelection] = useState("1");
+
+  const onSearch = async ({text,type}) => {
+    let URL= "";
+    setSelection(type);
+    type === "1" ? URL="http://localhost:3001/pokemons?name=" : URL="http://localhost:3001/pokemons/"
+ 
+   try {
+       const { data } = await axios(`${URL}${text}`)
+       if (type === "1") {
+          setCharacters([]);
+          setCharacters((characters) => [...characters, ...data]);
+       } else {
+          setCharacters([]);
+          setCharacters((characters) => [characters = data]);
+       }
+      } catch (error) {
+        window.alert(error.response.data.msg);
+     }
+ }
+  
   return (
     <div className='App'>
       <Nav logout={logout}/>
       <Routes>
         <Route path='/' element={<Login accessLogin={accessLogin}/>} />
-        <Route path='/home' element={<><Cards /><Search /></>} />
+        <Route path='/home' element={<><Cards characters={characters} selection={selection} onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
         <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
       </Routes>
     </div>

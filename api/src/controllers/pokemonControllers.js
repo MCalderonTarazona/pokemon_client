@@ -95,14 +95,14 @@ const findAllPokemons = async (req, res) => {
             res.status(200).json(allPokemons);
         } else {
             let pokemonDetail = allPokemons.filter(element => element.name.match(name.toLowerCase()));
-            if (pokemonDetail) {
+            if (pokemonDetail.length > 0) {
                 res.status(200).json(pokemonDetail);
             } else {
-                res.status(404).json({ message: 'No existe el pokemon con el nombre proporcionado' });
+                res.status(404).json({ msg: 'The pokemon with the given name does not exist' });
             }
         }    
     } catch (error) {
-        res.status(500).json({ message: 'Problemas con la data de Pokemons' });
+        res.status(500).json({ msg: 'Problems with the data of Pokemons' });
     }
 
   
@@ -127,10 +127,10 @@ const findIdPokemons = async (req, res) => {
         if (pokemonDetail.id) {
             res.status(200).json(pokemonDetail);
         } else {
-            res.status(404).json({ message: 'No existe el pokemon con el id proporcionado' });
+            res.status(404).json({ msg: 'The pokemon with the provided id does not exist' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'No existe el pokemon con el id proporcionado' });    
+        res.status(500).json({ msg: 'The pokemon with the provided id does not exist' });    
     }
     
 };

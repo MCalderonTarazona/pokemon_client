@@ -1,7 +1,24 @@
 import React from 'react';
 import style from './Search.module.css';
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass, faBroom } from '@fortawesome/free-solid-svg-icons';
 
-const Search = () => {
+const Search = ({onSearch}) => {
+
+  let [data, setData] = useState ({
+    type: "1",
+    text: ""
+  });
+
+  const handleChange = (event,option) => {
+    if(event){
+      setData({...data,[event.target.name]:event.target.value});
+    } else {
+      setData({...data,type:option})
+    }
+    
+  }
 
   return (
     <>
@@ -11,8 +28,23 @@ const Search = () => {
             <div className = {style.containerScreenExt} >
                 <div className = {style.containerScreenInt}>
                     <div className = {style.containerFilter}>
-                      <div className = {style.blockSearch}>Barra de Busqueda</div>
-                      <div className = {style.blockFilter}>
+                      <div className = {style.blockSearch}>
+                        <div className = {style.glassSearch} ><FontAwesomeIcon icon={faBroom} /></div>
+                        <div className = {style.blockSearchComplete}>
+                            { data.type === "1"
+                            ? <div className = {style.blockSearchButtonActive} onClick={()=>handleChange(false,"1")}> Name </div>
+                            : <div className = {style.blockSearchButton} onClick={()=>handleChange(false,"1")}> Name </div>
+                            }
+                            { data.type === "2"
+                            ? <div className = {style.blockSearchButtonActive} onClick={()=>handleChange(false,"2")}> Id </div>
+                            : <div className = {style.blockSearchButton} onClick={()=>handleChange(false,"2")}> Id </div>
+                            }
+                            <input type='text' name="text" maxlength="25" size="40" onChange={handleChange} value={data.text} />
+                            <div className={style.glassSearch} onClick={()=>{onSearch(data);setData({type:data.type,text:""})}} ><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+                        </div>
+                      </div>
+                      {data.type === "1"
+                      ?<div className = {style.blockFilter}>
                         <div className = {style.blockCol}>
                           <div className = {style.blockRow1}>Bug</div>
                           <div className = {style.blockRow6}>Fighting</div>
@@ -44,12 +76,17 @@ const Search = () => {
                           <div className = {style.blockRow20}>Shadow</div>
                         </div>
                       </div>
+                    : <div className = {style.blockMap}>mapa</div>
+                    }
                     </div>
-                    <div className = {style.blockOrder}></div>
+                    {data.type === "1"
+                    ?<div className = {style.blockOrder}></div>
+                    :<div></div>
+                    }
                 </div>
             </div>
         </div>
-        <div className = {style.containerRight}></div>  
+        <div className = {style.containerRight}></div>
     </div>
     </>
   );

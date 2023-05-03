@@ -57,10 +57,80 @@
 }
 
 .blockSearch {
+    display: flex;
+    justify-content: space-around;
     height: 5vh;
     width: 99%;
     margin-bottom: 0.2vw;
-    background-color: grey; 
+}
+
+.blockSearchComplete {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.blockSearchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bruno Ace SC', cursive;
+    height: 40px;
+    width: 70px;
+    font-size: 18px;
+    color: beige;
+    background: #1c1c1c;
+    border-radius: 10px;
+    cursor: pointer; 
+}
+
+.blockSearchButtonActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bruno Ace SC', cursive;
+    height: 40px;
+    width: 70px;
+    font-size: 18px;
+    color: beige;
+    background: #1c1c1c;
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 0px 15px 2px #1c1c1c;
+    cursor: pointer; 
+}
+
+.blockSearch input{
+    font-family: 'Bruno Ace SC', cursive;
+    font-size: 20px;
+    width: 500px;
+    background: #c0c0c0;
+    border-radius: 15px;
+    text-align: center;
+    color: #1c1c1c;
+    border: none;
+}
+
+.glassSearch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    color: beige;
+    background: #1c1c1c;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.blockMap {
+    background-image: url("../../img/mapa.png");
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    width: 90vw;
+    height: 22vh;
+    border-radius: 10px;
 }
 
 .blockFilter {
@@ -76,16 +146,6 @@
     background: #333333;
 }
 
-.blockRow {
-    height: 4.5vh;
-    width: 16.5vw;
-    margin-top: 0.6vh;
-    background: #7E8285;
-    border-radius: 20px;
-    border: 2px solid #2AAAE0;
-    box-shadow: 0px 0px 10px 1px #2AAAE0;  
-}
-
 .blockRow1 {
     display: flex;
     justify-content: center;
@@ -99,7 +159,12 @@
     background: #356f2e;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #356f2e;  
+    box-shadow: 0px 0px 10px 2px #356f2e;
+    cursor: pointer;  
+}
+
+.blockRow1:hover {
+    transform: scale(1.1);
 }
 
 .blockRow2 {
@@ -115,7 +180,12 @@
     background: #000000;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #000000;  
+    box-shadow: 0px 0px 10px 2px #000000;
+    cursor: pointer;  
+}
+
+.blockRow2:hover {
+    transform: scale(1.1);
 }
 
 .blockRow3 {
@@ -131,7 +201,12 @@
     background: #7d62ad;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #7d62ad;  
+    box-shadow: 0px 0px 10px 2px #7d62ad;
+    cursor: pointer;  
+}
+
+.blockRow3:hover {
+    transform: scale(1.1);
 }
 
 .blockRow4 {
@@ -147,7 +222,12 @@
     background: #f4a900;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #f4a900;  
+    box-shadow: 0px 0px 10px 2px #f4a900;
+    cursor: pointer;  
+}
+
+.blockRow4:hover {
+    transform: scale(1.1);
 }
 
 .blockRow5 {
@@ -163,7 +243,12 @@
     background: #ff40ff;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #ff40ff;  
+    box-shadow: 0px 0px 10px 2px #ff40ff; 
+    cursor: pointer; 
+}
+
+.blockRow5:hover {
+    transform: scale(1.1);
 }
 
 .blockRow6 {
@@ -179,7 +264,12 @@
     background: #800000;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #800000;  
+    box-shadow: 0px 0px 10px 2px #800000;
+    cursor: pointer;  
+}
+
+.blockRow6:hover {
+    transform: scale(1.1);
 }
 
 .blockRow7 {
@@ -195,7 +285,12 @@
     background: #ed1c24;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #ed1c24;  
+    box-shadow: 0px 0px 10px 2px #ed1c24;
+    cursor: pointer;  
+}
+
+.blockRow7:hover {
+    transform: scale(1.1);
 }
 
 .blockRow8 {
@@ -211,7 +306,12 @@
     background: #4040ff;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #4040ff;  
+    box-shadow: 0px 0px 10px 2px #4040ff;
+    cursor: pointer;  
+}
+
+.blockRow8:hover {
+    transform: scale(1.1);
 }
 
 .blockRow9 {
@@ -227,7 +327,12 @@
     background: #094293;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #094293;  
+    box-shadow: 0px 0px 10px 2px #094293;
+    cursor: pointer;  
+}
+
+.blockRow9:hover {
+    transform: scale(1.1);
 }
 
 .blockRow10 {
@@ -243,7 +348,12 @@
     background: #008000;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #008000;  
+    box-shadow: 0px 0px 10px 2px #008000;
+    cursor: pointer;  
+}
+
+.blockRow10:hover {
+    transform: scale(1.1);
 }
 
 .blockRow11 {
@@ -259,7 +369,12 @@
     background: #e68d14;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #e68d14;  
+    box-shadow: 0px 0px 10px 2px #e68d14;
+    cursor: pointer;  
+}
+
+.blockRow11:hover {
+    transform: scale(1.1);
 }
 
 .blockRow12 {
@@ -275,7 +390,12 @@
     background: #83c9e9;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #83c9e9;  
+    box-shadow: 0px 0px 10px 2px #83c9e9;
+    cursor: pointer;  
+}
+
+.blockRow12:hover {
+    transform: scale(1.1);
 }
 
 .blockRow13 {
@@ -291,7 +411,12 @@
     background: #a4a4a4;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #a4a4a4;  
+    box-shadow: 0px 0px 10px 2px #a4a4a4;
+    cursor: pointer;  
+}
+
+.blockRow13:hover {
+    transform: scale(1.1);
 }
 
 .blockRow14 {
@@ -307,7 +432,12 @@
     background: #7d2181;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #7d2181;  
+    box-shadow: 0px 0px 10px 2px #7d2181;
+    cursor: pointer;  
+}
+
+.blockRow14:hover {
+    transform: scale(1.1);
 }
 
 .blockRow15 {
@@ -323,7 +453,12 @@
     background: #e30052;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #e30052;  
+    box-shadow: 0px 0px 10px 2px #e30052;
+    cursor: pointer;  
+}
+
+.blockRow15:hover {
+    transform: scale(1.1);
 }
 
 .blockRow16 {
@@ -339,7 +474,12 @@
     background: #927600;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #927600;  
+    box-shadow: 0px 0px 10px 2px #927600;
+    cursor: pointer;  
+}
+
+.blockRow16:hover {
+    transform: scale(1.1);
 }
 
 .blockRow17 {
@@ -355,7 +495,12 @@
     background: #727272;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #727272;  
+    box-shadow: 0px 0px 10px 2px #727272;
+    cursor: pointer;  
+}
+
+.blockRow17:hover {
+    transform: scale(1.1);
 }
 
 .blockRow18 {
@@ -371,7 +516,12 @@
     background: #002ecd;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #002ecd;  
+    box-shadow: 0px 0px 10px 2px #002ecd;
+    cursor: pointer;  
+}
+
+.blockRow18:hover {
+    transform: scale(1.1);
 }
 
 .blockRow19 {
@@ -387,7 +537,12 @@
     background: #009c8c;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #009c8c;  
+    box-shadow: 0px 0px 10px 2px #009c8c;
+    cursor: pointer;  
+}
+
+.blockRow19:hover {
+    transform: scale(1.1);
 }
 
 .blockRow20 {
@@ -403,7 +558,12 @@
     background: #955f20;
     border-radius: 20px;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 0px 10px 2px #955f20;  
+    box-shadow: 0px 0px 10px 2px #955f20;
+    cursor: pointer;  
+}
+
+.blockRow20:hover {
+    transform: scale(1.1);
 }
 
 .blockOrder {
