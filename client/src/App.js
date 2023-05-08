@@ -60,8 +60,6 @@ function App() {
 let { filterTypes, filterOrder }  = useSelector(state => state);
 
 const onSearch = async ({type,text}) => {
-    const typeText = typeof text;
-    console.log(typeText)
     let URL= "";
     type === "name" && typeof text === "string" ? URL="http://localhost:3001/pokemons?name=" : URL="http://localhost:3001/pokemons/"
  

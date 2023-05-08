@@ -41,6 +41,14 @@ const Search = ({onSearch}) => {
       setData({...data,[event.target.name]:event.target.value});
   }
 
+  const handleClean = async () => {
+    await onSearch({...data,type:"name",text:""})
+    dispatch(filter([]));
+    dispatch(group("id"));
+    dispatch(order("A"));
+    setData({...data,text:""});
+  };
+
   return (
     <>
     <div className = {style.containerSearch}>
@@ -50,13 +58,19 @@ const Search = ({onSearch}) => {
                 <div className = {style.containerScreenInt}>
                     <div className = {style.containerFilter}>
                       <div className = {style.blockSearch}>
-                        <div className = {style.glassSearch} onClick={()=>handleFilter()}><FontAwesomeIcon icon={faBroom} /></div>
+                        <div className = {style.glassSearch} onClick={()=>handleClean()}><FontAwesomeIcon icon={faBroom} /></div>
                         <div className = {style.blockSearchComplete}>
                             <div className={`${style.blockSearchButton} ${filterGroup.includes("attack") ? style.blockSearchButtonActive : ""}`} onClick={() => handleGroup("attack")}>Attack</div>
                             <div className={`${style.blockSearchButton} ${filterGroup.includes("name") ? style.blockSearchButtonActive : ""}`} onClick={() => handleGroup("name")}>Name</div>
                             <div className={`${style.blockSearchButton} ${filterGroup.includes("id") ? style.blockSearchButtonActive : ""}`} onClick={() => handleGroup("id")}>ID</div>
-                            <input type='text' name="text" maxlength="25" size="40" onChange={handleChange} value={data.text} />
-                            <div className={style.glassSearch} onClick={()=>{onSearch({...data,type:filterGroup});setData({type:data.type,text:data.text})}} ><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+                            {filterGroup !== "attack"
+                            ?<>
+                              <input type='text' name="text" maxlength="25" size="40" onChange={handleChange} value={data.text} />
+                              <div className={style.glassSearch} onClick={()=>{onSearch({...data,type:filterGroup});setData({type:data.type,text:data.text})}} ><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+                            </>
+                            :
+                            <div></div>
+                            }                      
                         </div>
                       </div>
                       {(filterGroup === "name" || filterGroup === "attack" || (text === "" && filterGroup === "id" ))

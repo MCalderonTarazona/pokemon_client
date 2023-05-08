@@ -11,7 +11,8 @@ const Cards = ({onSearch}) => {
   let start = (numPage - 1) * 12;
   let end = numPage * 12;
 
-  let cantPages = Math.ceil(viewCharacters.length / 12);
+  let cantResult = viewCharacters.length;
+  let cantPages = Math.ceil(cantResult / 12);
   let characters = viewCharacters?.slice(start, end);
 
   return (
@@ -61,7 +62,7 @@ const Cards = ({onSearch}) => {
                   }
                 </div>
               </div>
-              <div className = {style.containerPaginate}><Paginate cantPages={cantPages}></Paginate></div>
+              <div className = {style.containerPaginate}><Paginate cantPages={cantPages} cantResult={cantResult}></Paginate></div>
           </div>
       </div>
       <div className = {style.containerRight}>
