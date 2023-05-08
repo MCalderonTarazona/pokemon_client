@@ -1,4 +1,4 @@
-import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE } from "./types";
+import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE, FILTER, ORDER, GROUP } from "./types";
 
 export function prevPage() {
     return {
@@ -13,9 +13,26 @@ export function nextPage() {
 }
   
 export function allCharacters(characters) {
-    console.log(characters);
     return {
       type: ALL_CHARACTERS,
       payload: characters,
     };
+}
+
+export const filter = (types) => {
+    return (
+        {type: FILTER, payload: types}
+    )
+}
+
+export const order = (order) => {
+    return (
+        {type: ORDER, payload: order}
+    )
+}
+
+export const group = (group) => {
+    return (
+        {type: GROUP, payload: group}
+    )
 }

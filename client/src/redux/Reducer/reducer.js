@@ -1,8 +1,13 @@
-import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE } from "../Actions/types";
+import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE, FILTER, ORDER, GROUP } from "../Actions/types";
 
 const initialState = {
     numPage: 1,
-    allCharacters: [],
+    viewCharacters: [],
+    queryCharacters: [],
+    filterTypes: [],
+    filterGroup: "id",
+    filterOrder: "A",
+    text: ""
   };
 
 const rootReducer = (state=initialState, action) => {
@@ -17,15 +22,61 @@ const rootReducer = (state=initialState, action) => {
             ...state,
             numPage: state.numPage - 1,
         };
-
+        case FILTER:
+        const newFilter = state.queryCharacters.filter((data) => {
+            return action.payload.some((element) => data.types.includes(element));
+        });
+            
+        return {
+            ...state,
+            viewCharacters: newFilter.length === 0 ? state.queryCharacters : newFilter,
+            filterTypes: action.payload
+        }
+        case GROUP:
+        const newGroup = state.queryCharacters.sort((a, b) => {
+            if (typeof a[action.payload] === "number") {
+                  return a[action.payload] - b[action.payload];
+            } else if (typeof a[action.payload] === "string") {
+                  return a[action.payload].localeCompare(b[action.payload]);
+            }
+        });
+        return {
+            ...state,
+            viewCharacters: newGroup,
+            filterGroup: action.payload
+        }
+        case ORDER:
+            let newOrder = [];
+            if (action.payload === "A") {
+                newOrder = state.viewCharacters.sort((a, b) => {
+                    if (typeof a[state.filterGroup] === "number") {
+                      return a[state.filterGroup] - b[state.filterGroup];
+                    } else if (typeof a[state.filterGroup] === "string") {
+                      return a[state.filterGroup].localeCompare(b[state.filterGroup]);
+                    }
+                });
+            } else {
+                newOrder = state.viewCharacters.sort((a, b) => {
+                    if (typeof a[state.filterGroup] === "number") {
+                      return b[state.filterGroup] - a[state.filterGroup];
+                    } else if (typeof a[state.filterGroup] === "string") {
+                      return b[state.filterGroup].localeCompare(a[state.filterGroup]);
+                    }
+                });
+            }
+            return {
+                ...state,
+                viewCharacters: newOrder,
+                filterOrder: action.payload
+        } 
         case ALL_CHARACTERS:
-        if (Array.isArray(action.payload)) {
             return {
             ...state, 
             numPage: 1,
-            allCharacters: [...action.payload]
+            queryCharacters: [...action.payload.data],
+            viewCharacters: [...action.payload.data],
+            text: action.payload.text
             };
-        } 
         break;
 
         default:

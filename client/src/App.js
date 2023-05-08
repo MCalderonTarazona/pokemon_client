@@ -7,8 +7,8 @@ import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useDispatch } from "react-redux";
-import { allCharacters } from "./redux/Actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { allCharacters, order, group, filter } from "./redux/Actions/actions";
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
     axios
       .get(`http://localhost:3001/pokemons`)
       .then((results) => {
-        dispatch(allCharacters(results.data));
+        dispatch(allCharacters({text:"", data:results.data}));
       });
   }, []);
 
@@ -57,31 +57,37 @@ function App() {
     }
   }
 
-  const [selection, setSelection] = useState("1");
+let { filterTypes, filterOrder }  = useSelector(state => state);
 
-  const onSearch = async ({text,type}) => {
+const onSearch = async ({type,text}) => {
+    const typeText = typeof text;
+    console.log(typeText)
     let URL= "";
-    setSelection(type);
-    type === "1" ? URL="http://localhost:3001/pokemons?name=" : URL="http://localhost:3001/pokemons/"
+    type === "name" && typeof text === "string" ? URL="http://localhost:3001/pokemons?name=" : URL="http://localhost:3001/pokemons/"
  
    try {
        const { data } = await axios(`${URL}${text}`)
-       if (type === "1") {
-          dispatch(allCharacters(data));
+       if (type === "name") {
+          dispatch(allCharacters({text:text, data:data}));
+          dispatch(filter(filterTypes));
+          dispatch(order(filterOrder));
        } else {
-          dispatch(allCharacters([data]));
+          dispatch(allCharacters({text:text, data:[data]}));
+          dispatch(group("id"));
+          dispatch(filter(filterTypes));
+          dispatch(order(filterOrder));
        }
       } catch (error) {
         window.alert(error.response.data.msg);
      }
  }
-  
+ 
   return (
     <div className='App'>
       <Nav logout={logout}/>
       <Routes>
         <Route path='/' element={<Login accessLogin={accessLogin}/>} />
-        <Route path='/home' element={<><Cards selection={selection} onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
+        <Route path='/home' element={<><Cards onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
         <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
       </Routes>
     </div>

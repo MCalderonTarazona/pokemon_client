@@ -76,8 +76,8 @@
     justify-content: center;
     font-family: 'Bruno Ace SC', cursive;
     height: 40px;
-    width: 70px;
-    font-size: 18px;
+    width: 80px;
+    font-size: 16px;
     color: beige;
     background: #1c1c1c;
     border-radius: 10px;
@@ -90,8 +90,8 @@
     justify-content: center;
     font-family: 'Bruno Ace SC', cursive;
     height: 40px;
-    width: 70px;
-    font-size: 18px;
+    width: 80px;
+    font-size: 16px;
     color: beige;
     background: #1c1c1c;
     border-radius: 10px;
@@ -146,6 +146,12 @@
     background: #333333;
 }
 
+.selected {
+    border: 1px solid #FFFFFF;
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
 .blockRow1 {
     display: flex;
     justify-content: center;
@@ -154,7 +160,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #356f2e;
@@ -175,7 +181,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #000000;
@@ -196,7 +202,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #7d62ad;
@@ -217,7 +223,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #f4a900;
@@ -238,7 +244,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #ff40ff;
@@ -259,7 +265,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #800000;
@@ -280,7 +286,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #ed1c24;
@@ -301,7 +307,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #4040ff;
@@ -322,7 +328,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #094293;
@@ -343,7 +349,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #008000;
@@ -364,7 +370,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #e68d14;
@@ -385,7 +391,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #83c9e9;
@@ -406,7 +412,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #a4a4a4;
@@ -427,7 +433,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #7d2181;
@@ -448,7 +454,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #e30052;
@@ -469,7 +475,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #927600;
@@ -490,7 +496,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #727272;
@@ -511,7 +517,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #002ecd;
@@ -532,7 +538,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #009c8c;
@@ -553,7 +559,7 @@
     height: 3.5vh;
     width: 9vw;
     margin-bottom: 1.5vh;
-    font-size: 25px;
+    font-size: 22px;
     color: beige;
     margin-top: 1vh;
     background: #955f20;
@@ -567,7 +573,30 @@
 }
 
 .blockOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
     height: 25vh;
     width: 5%;
-    background: blue;
+}
+
+.blockOrderButtom svg{
+    background: #1c1c1c;
+    fill: #FFFFFF;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 9px 10px;
+    cursor: pointer;
+}
+
+.blockOrderButtomActive svg {
+    background: #1c1c1c;
+    fill: #FFFFFF;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 9px 10px;
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
 }

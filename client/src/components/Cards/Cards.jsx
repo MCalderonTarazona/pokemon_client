@@ -5,15 +5,14 @@ import Card from '../Card/Card';
 import Paginate from '../Paginate/Paginate';
 import { useSelector } from "react-redux";
 
-const Cards = ({selection, onSearch}) => {
-  const allCharacters  = useSelector(state => state.allCharacters);
-  const numPage = useSelector(state => state.numPage);
+const Cards = ({onSearch}) => {
+  const {viewCharacters, numPage, filterGroup, text}  = useSelector(state => state);
 
   let start = (numPage - 1) * 12;
   let end = numPage * 12;
 
-  let cantPages = Math.ceil(allCharacters.length / 12);
-  let viewCharacters = allCharacters?.slice(start, end);
+  let cantPages = Math.ceil(viewCharacters.length / 12);
+  let characters = viewCharacters?.slice(start, end);
 
   return (
     <>
@@ -26,8 +25,8 @@ const Cards = ({selection, onSearch}) => {
           <div className = {style.containerScreenExt} >
               <div className = {style.containerScreenInt}>
                 <div className = {style.containerCards}>
-                  { selection === "1"
-                    ? viewCharacters.map((e) => {
+                  { (text === "" || filterGroup === "name" ) && typeof text !== "number"
+                    ? characters.map((e) => {
                       console.log(e.image);
                       return <Card
                       key={e.id} 
@@ -44,7 +43,7 @@ const Cards = ({selection, onSearch}) => {
                       onSearch={onSearch}
                       />
                     })    
-                    : viewCharacters.map((e) => {
+                    : characters.map((e) => {
                       return <Detail
                       key={e.id} 
                       id={e.id}
