@@ -70,6 +70,19 @@ function App() {
     }
   }
 
+  const createPokemoData = () => {
+    axios
+      .get(`http://localhost:3001/pokemons`)
+      .then((results) => {
+        dispatch(allCharacters({text:"", data:results.data}));
+        dispatch(order(filterOrder));
+      });
+  }
+  
+  useEffect(() => {
+    createPokemoData();
+  }, []);
+
 let { filterTypes, filterOrder }  = useSelector(state => state);
 
 const onSearch = async ({type,text}) => {
@@ -100,7 +113,7 @@ const onSearch = async ({type,text}) => {
         <Route path='/' element={<Login accessLogin={accessLogin}/>} />
         <Route path='/home' element={<><Cards onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
         <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
-        <Route path='/pokemon' element={<CreatePokemon createPokemon={createPokemon}/>} />
+        <Route path='/pokemon' element={<CreatePokemon createPokemon={createPokemon} createPokemoData={createPokemoData} />} />
       </Routes>
     </div>
   );
