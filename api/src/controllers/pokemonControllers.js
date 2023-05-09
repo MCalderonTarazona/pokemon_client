@@ -137,26 +137,34 @@ const findIdPokemons = async (req, res) => {
 
 const createPokemon = async (req, res) => {
     try {
-        const { id, name, image, hp, attack, defense, speed, height, weight, types } = req.body;
+        const { name, image, hp, attack, defense, speed, height, weight, types } = req.body;
         if( !name || !image || !hp || !attack || !defense || !types){
-            return res.status(404).send('Faltan datos para el registro de tu pokemon');
+            return res.status(404).json({msg: "Missing data for registration"});
+        }
+        let id;
+        const idInitial = await Pokemon.findByPk(20000);
+        if (idInitial === null) {
+            id = 20000;
+        } else {
+        const lastPokemon = await Pokemon.findOne({ order: [['id', 'DESC']] });
+            id = lastPokemon.dataValues.id + 1;
         }
         const [newPokemon, created] = await Pokemon.findOrCreate({
             where: { name },
             defaults: { id, name, image, hp, attack, defense, speed, height, weight }
         });
 
-        if (!created){ res.status(404).send('El Pokemon ya existe');
+        if (!created){ res.status(404).json({msg: "Pokemon already exists"});
         }else{
             for (const element of types) {
                 const idType = await Type.findOne({ where: { name: element } });
                 await newPokemon.addType(idType);
             }
-            res.status(200).send('El Pokemon se ha creado con exito');  
+            res.status(200).json({access: true});  
         }
         
     } catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).json({access: false});
     }
     
 }

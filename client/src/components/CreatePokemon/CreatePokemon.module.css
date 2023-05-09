@@ -1,0 +1,9 @@
+.containerRange {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.containerRange label{
+    font-size: 20px;
+}

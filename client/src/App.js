@@ -3,6 +3,7 @@ import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser';
 import Search from './components/Search/Search';
 import Nav from './components/Nav/Nav';
+import CreatePokemon from './components/CreatePokemon/CreatePokemon';
 import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
@@ -18,6 +19,7 @@ function App() {
       .get(`http://localhost:3001/pokemons`)
       .then((results) => {
         dispatch(allCharacters({text:"", data:results.data}));
+        dispatch(order(filterOrder));
       });
   }, []);
 
@@ -57,6 +59,17 @@ function App() {
     }
   }
 
+  const createPokemon = async (userData) => {
+    try {
+       const URL = 'http://localhost:3001/pokemons';
+       const { data } = await axios.post(URL,userData);
+       const { access } = data;
+       access && window.alert("User created successfully");
+    } catch (error) {
+       window.alert(error.response.data.msg);
+    }
+  }
+
 let { filterTypes, filterOrder }  = useSelector(state => state);
 
 const onSearch = async ({type,text}) => {
@@ -87,6 +100,7 @@ const onSearch = async ({type,text}) => {
         <Route path='/' element={<Login accessLogin={accessLogin}/>} />
         <Route path='/home' element={<><Cards onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
         <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
+        <Route path='/pokemon' element={<CreatePokemon createPokemon={createPokemon}/>} />
       </Routes>
     </div>
   );
