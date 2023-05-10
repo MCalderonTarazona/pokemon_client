@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
+.modalDiv {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(91, 112, 131, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
 .containerForm {
     display: flex;
     flex-direction: column;
@@ -7,22 +19,25 @@
     align-content: center;
     justify-content: center;
     border-radius: 10px;
-    border: 1px solid #000;
     font-family: 'Bruno Ace SC', cursive;
-    padding-top: 20%;
+    padding-top: 1%;
+    background: #c0c0c0;
+    border: 2px solid #2AAAE0;
+    box-shadow: 0px 0px 30px 5px #2AAAE0;
+}
+
+.containerForm {
+    color: #333333;
 }
 
 .registerForm {
-    position: absolute;
-    top: 25px;
-    left: 80%;
-    z-index: 100;
+    margin-left: 82%;
     font-family: 'Delicious Handrawn';
-    font-size: 30px;
-    color: #F2B90C;
-    border: 2px solid #F2B90C;
+    font-size: 20px;
+    color: beige;
+    border: 1px solid #FFFFFF;
     border-radius: 10px;
-    background: #231a24;
+    background: #333333;
     padding: 5px 15px 10px 15px;
     text-decoration: none;
     cursor: pointer;
@@ -33,10 +48,23 @@
 }
 
 .containerFormValues {
-    border-radius: 10px;
-    border: 1px solid red;
-    width: 400px;
-    padding: 10px;
+    width: 420px;
+    padding: 5px;
+}
+
+.errorForm {
+    text-align: right;
+    font-size: 9px;
+    color: red;
+}
+
+.space {
+    width: 9px;
+}
+
+.selectType {
+    text-align: center;
+    padding-bottom: 1%;
 }
 
 .containerRange {
@@ -46,20 +74,35 @@
 }
 
 .containerRange label{
-    font-size: 20px;
+    font-size: 17px;
+    padding: 0 10px;
+}
+
+.dataRange {
+    width: 35px;
 }
 
 .containerType {
     display: flex;
     flex-wrap: wrap;
-    width: 600px;
-    border-radius: 10px;
-    border: 1px solid #000;
+    width: 550px;
+    padding-left: 1%;
 }
 
 .buttonTypeActive {
-    border: 1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
     opacity: 0.8; 
+}
+
+.inputForm {
+    font-family: 'Bruno Ace SC', cursive;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #9b9b9b;
+    background: transparent;
+    font-size: 14px;
+    color: #333333;
+    padding: 7px 0;
 }
 
 .type-bug {
@@ -471,11 +514,30 @@
 .buttonForm {
     font-family: 'Bruno Ace SC', cursive;
     font-size: 18px;
-    color: #F2B90C;
-    border: 2px solid #F2B90C;
+    color: beige;
+    border: 1px solid #FFFFFF;
     border-radius: 10px;
-    background: #231a24;
+    background: #333333;
     width: 45%;
     height: 40px;
     margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.buttonForm:hover {
+    transform: scale(1.1);
+}
+
+.buttonFormInactive {
+    font-family: 'Bruno Ace SC', cursive;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 45%;
+    height: 40px;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    Border: 2px solid #999999;
+    Background-color: dark grey;
+    color: #999999;
+    opacity: 0.5;
 }

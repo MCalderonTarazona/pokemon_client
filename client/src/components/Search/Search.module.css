@@ -111,26 +111,25 @@
     border: none;
 }
 
-.glassSearch {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    color: beige;
+
+.glassSearch svg {
     background: #1c1c1c;
+    fill: #FFFFFF;
     border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 10px;
     cursor: pointer;
 }
 
-.blockMap {
-    background-image: url("../../img/teclado.png");
-    background-repeat: no-repeat;
-    background-position: 0% 50%;
-    width: 90vw;
-    height: 22vh;
-    border-radius: 10px;
+.clean svg{
+    background: #1c1c1c;
+    fill: #FFFFFF;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .blockFilter {

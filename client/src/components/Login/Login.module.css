@@ -79,6 +79,19 @@
     margin-top: 5%;
 }
 
+.buttonFormInactive {
+    font-family: 'Delicious Handrawn';
+    font-size: 18px;
+    border-radius: 10px;
+    width: 45%;
+    height: 40px;
+    margin-top: 5%;
+    Border: 2px solid #999999;
+    Background-color: dark grey;
+    color: #999999;
+    opacity: 0.7;
+}
+
 .buttonForm:hover {
     transform: scale(1.1);
 }
@@ -108,9 +121,22 @@
     font-size: 20px;
 }
 
+.eyeForm svg{
+    background: transparent;
+    fill: #BF820F;
+    height: 25px;
+    width: 25px;
+    padding: 15px 0px 10px 0px;
+    cursor: pointer;
+}
+
 .errorForm {
     font-size: 20px;
     margin-top: 0;
+}
+
+.space {
+    width: 20px;
 }
 
 .descritionForm {

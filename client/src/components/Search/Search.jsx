@@ -2,8 +2,6 @@ import React from 'react';
 import style from './Search.module.css';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faBroom } from '@fortawesome/free-solid-svg-icons';
 import { filter, group, order } from '../../redux/Actions/actions';
 
 const Search = ({onSearch}) => {
@@ -58,7 +56,9 @@ const Search = ({onSearch}) => {
                 <div className = {style.containerScreenInt}>
                     <div className = {style.containerFilter}>
                       <div className = {style.blockSearch}>
-                        <div className = {style.glassSearch} onClick={()=>handleClean()}><FontAwesomeIcon icon={faBroom} /></div>
+                        <div className = {style.clean} onClick={()=>handleClean()}>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M566.6 54.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192-34.7-34.7c-4.2-4.2-10-6.6-16-6.6c-12.5 0-22.6 10.1-22.6 22.6v29.1L364.3 320h29.1c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16l-34.7-34.7 192-192zM341.1 353.4L222.6 234.9c-42.7-3.7-85.2 11.7-115.8 42.3l-8 8C76.5 307.5 64 337.7 64 369.2c0 6.8 7.1 11.2 13.2 8.2l51.1-25.5c5-2.5 9.5 4.1 5.4 7.9L7.3 473.4C2.7 477.6 0 483.6 0 489.9C0 502.1 9.9 512 22.1 512l173.3 0c38.8 0 75.9-15.4 103.4-42.8c30.6-30.6 45.9-73.1 42.3-115.8z"/></svg>
+                        </div>
                         <div className = {style.blockSearchComplete}>
                             <div className={`${style.blockSearchButton} ${filterGroup.includes("attack") ? style.blockSearchButtonActive : ""}`} onClick={() => handleGroup("attack")}>Attack</div>
                             <div className={`${style.blockSearchButton} ${filterGroup.includes("name") ? style.blockSearchButtonActive : ""}`} onClick={() => handleGroup("name")}>Name</div>
@@ -66,7 +66,7 @@ const Search = ({onSearch}) => {
                             {filterGroup !== "attack"
                             ?<>
                               <input type='text' name="text" maxlength="25" size="40" onChange={handleChange} value={data.text} />
-                              <div className={style.glassSearch} onClick={()=>{onSearch({...data,type:filterGroup});setData({type:data.type,text:data.text})}} ><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+                              <div className={style.glassSearch} onClick={()=>{onSearch({...data,type:filterGroup});setData({type:data.type,text:data.text})}} ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></div>
                             </>
                             :
                             <div></div>
@@ -106,7 +106,7 @@ const Search = ({onSearch}) => {
                           <div className={`${style.blockRow20} ${filterTypes.includes("shadow") ? style.selected : ""}`} onClick={() => handleFilter("shadow")}>Shadow</div>
                         </div>
                       </div>
-                    : <div className = {style.blockMap}>mapa</div>
+                    : <div className = {style.blockMap}></div>
                     }
                     </div>
                     {(filterGroup === "name" || filterGroup === "attack" || (text === "" && filterGroup === "id" ))

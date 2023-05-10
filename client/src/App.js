@@ -7,7 +7,7 @@ import CreatePokemon from './components/CreatePokemon/CreatePokemon';
 import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { allCharacters, order, group, filter } from "./redux/Actions/actions";
 
@@ -64,7 +64,7 @@ function App() {
        const URL = 'http://localhost:3001/pokemons';
        const { data } = await axios.post(URL,userData);
        const { access } = data;
-       access && window.alert("User created successfully");
+       access && window.alert("Pokemon created successfully");
     } catch (error) {
        window.alert(error.response.data.msg);
     }
@@ -105,16 +105,23 @@ const onSearch = async ({type,text}) => {
         window.alert(error.response.data.msg);
      }
  }
+
+ const location = useLocation();
+ const background = location.state && location.state.background;
  
   return (
     <div className='App'>
       <Nav logout={logout}/>
-      <Routes>
+      <Routes location={background || location}>
         <Route path='/' element={<Login accessLogin={accessLogin}/>} />
         <Route path='/home' element={<><Cards onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
         <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
-        <Route path='/pokemon' element={<CreatePokemon createPokemon={createPokemon} createPokemoData={createPokemoData} />} />
       </Routes>
+      {location && (
+      <Routes>
+         <Route path='/pokemon' element={<CreatePokemon createPokemon={createPokemon} createPokemoData={createPokemoData} />} />
+      </Routes>
+      )}
     </div>
   );
 }
