@@ -57,9 +57,20 @@ const handleChange = (event) => {
     setUsedata({...userData,[event.target.name]:event.target.value});  
 };
 
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
     event.preventDefault();
-    createPokemon(userData);  
+    await createPokemon(userData);
+    setUsedata({
+        name:"",
+        image: "",
+        hp: 50,
+        attack: 50,
+        defense: 50,
+        speed: 50,
+        height: 50,
+        weight: 50,
+        types: []
+    });
 };
  
   return (
