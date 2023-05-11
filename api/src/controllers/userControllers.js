@@ -1,5 +1,4 @@
 const {User} = require("../db");
-const {Role} = require("../db");
 
 const createUser = async (req, res) => {
     try {
@@ -10,7 +9,8 @@ const createUser = async (req, res) => {
         }
 
         const [newUser, created] = await User.findOrCreate({
-            where: { name, email, password },
+            where: { email },
+            defaults: { name, email, password }
         });
 
         if (!created){ res.status(404).json({msg: "User already exists"});
