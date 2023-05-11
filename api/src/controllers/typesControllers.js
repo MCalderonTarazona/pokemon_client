@@ -29,7 +29,7 @@ const findTypesBd = async (req, res) => {
         const typeNames = types.map(element => element.name);
         res.status(200).json(typeNames);
     } catch (error) {
-        res.status(500).json("Error al obtener los tipos de pokemones");
+        res.status(500).json({ msg: 'Problems with the data of Pokemons' });
     }
 
 }

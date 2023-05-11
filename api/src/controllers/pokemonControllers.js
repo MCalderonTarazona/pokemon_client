@@ -94,6 +94,7 @@ const findAllPokemons = async (req, res) => {
         if(!name) {
             res.status(200).json(allPokemons);
         } else {
+            //let pokemonDetail = allPokemons.find(element => element.name.toLowerCase() === name.toLowerCase());
             let pokemonDetail = allPokemons.filter(element => element.name.match(name.toLowerCase()));
             if (pokemonDetail.length > 0) {
                 res.status(200).json(pokemonDetail);
