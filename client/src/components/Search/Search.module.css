@@ -599,3 +599,68 @@
     cursor: pointer;
     border: 1px solid #FFFFFF;
 }
+
+.blockSource {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.blockSourceAll {
+    display: flex;
+    justify-content: center;
+    background: #00bb2d;
+    font-family: 'Bruno Ace SC', cursive;
+    color: #FFFFFF;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 10px 10px 5px 10px;
+    margin-left: 20%;
+    cursor: pointer;
+}
+
+.blockSourceOrigin {
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.database svg{
+    background: #00bb2d;
+    fill: #FFFFFF;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.api svg{
+    background: #00bb2d;
+    fill: #FFFFFF;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.blockSourceActive {
+    border: 2px solid #FFFFFF;
+}
+
+.blockSourceActiveSvg svg {
+    background: #00bb2d;
+    fill: #FFFFFF;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 9px 10px;
+    cursor: pointer;
+    border: 2px solid #FFFFFF;
+}
+
+

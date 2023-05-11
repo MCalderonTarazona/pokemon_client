@@ -1,4 +1,4 @@
-import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE, FILTER, ORDER, GROUP } from "../Actions/types";
+import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE, FILTER, ORDER, GROUP, SOURCE } from "../Actions/types";
 
 const initialState = {
     numPage: 1,
@@ -7,6 +7,7 @@ const initialState = {
     filterTypes: [],
     filterGroup: "id",
     filterOrder: "A",
+    filterSource: "all",
     text: ""
   };
 
@@ -21,6 +22,42 @@ const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             numPage: state.numPage - 1,
+        };
+        case SOURCE:
+        let newSource = [];
+        if(action.payload === 'api'){
+            newSource = state.queryCharacters.filter(element => element.id < 20000);
+            console.log(newSource); 
+        }
+        else if(action.payload === 'db'){
+            newSource = state.queryCharacters.filter(element => element.id >= 20000);
+            console.log(newSource);
+        }else{
+            newSource = state.queryCharacters;
+            console.log(newSource);
+        }
+
+        let newFilterSource = []
+        if(state.filterTypes.length === 0){
+            newFilterSource = newSource;
+        } else {
+            newFilterSource = newSource.filter((data) => {
+                return state.filterTypes.some((element) => data.types.includes(element));
+            });
+        }
+
+        const newGroupSource = newFilterSource.sort((a, b) => {
+            if (typeof a[state.filterGroup] === "number") {
+                  return a[state.filterGroup] - b[state.filterGroup];
+            } else if (typeof a[state.filterGroup] === "string") {
+                  return a[state.filterGroup].localeCompare(b[state.filterGroup]);
+            }
+        });
+
+        return {
+            ...state,
+            filterSource: action.payload,
+            viewCharacters: newGroupSource
         };
         case FILTER:
         const newFilter = state.queryCharacters.filter((data) => {

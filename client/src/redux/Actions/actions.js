@@ -1,4 +1,4 @@
-import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE, FILTER, ORDER, GROUP } from "./types";
+import { ALL_CHARACTERS, PREV_PAGE, NEXT_PAGE, FILTER, ORDER, GROUP, SOURCE } from "./types";
 
 export function prevPage() {
     return {
@@ -34,5 +34,11 @@ export const order = (order) => {
 export const group = (group) => {
     return (
         {type: GROUP, payload: group}
+    )
+}
+
+export const source = (source) => {
+    return (
+        {type: SOURCE, payload: source}
     )
 }

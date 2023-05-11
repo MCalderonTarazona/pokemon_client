@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Search.module.css';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { filter, group, order } from '../../redux/Actions/actions';
+import { filter, group, order, source } from '../../redux/Actions/actions';
 
 const Search = ({onSearch}) => {
 
@@ -12,7 +12,7 @@ const Search = ({onSearch}) => {
   });
 
   const dispatch = useDispatch();
-  const {filterTypes, filterGroup, filterOrder, text}  = useSelector(state => state);
+  const {filterTypes, filterGroup, filterOrder, text, filterSource}  = useSelector(state => state);
 
   useEffect(() => {
     setData({...data,text:text});
@@ -20,15 +20,17 @@ const Search = ({onSearch}) => {
 
   const handleFilter = (types) => {
     filterTypes.includes(types) ? filterTypes.splice(filterTypes.indexOf(types), 1) : filterTypes.push(types)
-    dispatch(filter(filterTypes));
+    dispatch(source(filterSource));
+    //dispatch(filter(filterTypes));
     dispatch(order(filterOrder));
   };
 
   const handleGroup = (groups) => {
     if (filterGroup === groups) return false
     setData({...data,text:""});
-    onSearch({...data,type:"name",text:""})
+    onSearch({...data,type:"name",text:""});
     dispatch(group(groups));
+    //dispatch(source(filterSource));
   };
 
   const handleOrder = (orderBy) => {
@@ -36,14 +38,20 @@ const Search = ({onSearch}) => {
   };
 
   const handleChange = (event) => {
-      setData({...data,[event.target.name]:event.target.value});
+    setData({...data,[event.target.name]:event.target.value});
   }
+
+  const handleSource = (origin) => {
+    dispatch(source(origin));
+    dispatch(order(filterOrder));
+  };
 
   const handleClean = async () => {
     await onSearch({...data,type:"name",text:""})
     dispatch(filter([]));
     dispatch(group("id"));
     dispatch(order("A"));
+    dispatch(source("all"));
     setData({...data,text:""});
   };
 
@@ -116,6 +124,18 @@ const Search = ({onSearch}) => {
                       </div>
                       <div className={`${style.blockOrderButtom} ${filterOrder.includes("D") ? style.blockOrderButtomActive : ""}`} onClick={() => handleOrder("D")}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+                      </div>
+                      <div className = {style.blockSource}>
+                        <div className={`${style.blockSourceAll} ${filterSource.includes("all") ? style.blockSourceActive : ""}`} onClick={() => handleSource("all")}>ALL</div>
+                        <div className = {style.blockSourceOrigin}>
+                          <div className={`${style.api} ${filterSource.includes("api") ? style.blockSourceActiveSvg : ""}`} onClick={() => handleSource("api")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M0 336c0 79.5 64.5 144 144 144H512c70.7 0 128-57.3 128-128c0-61.9-44-113.6-102.4-125.4c4.1-10.7 6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32C167.6 32 96 103.6 96 192c0 2.7 .1 5.4 .2 8.1C40.2 219.8 0 273.2 0 336z"/></svg>
+                          </div>
+                          <div>&nbsp;</div>
+                          <div className={`${style.database} ${filterSource.includes("db") ? style.blockSourceActiveSvg : ""}`} onClick={() => handleSource("db")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg>
+                          </div>
+                        </div>
                       </div>
                      </div>
                     :<div></div>

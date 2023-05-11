@@ -5,3 +5,4 @@ export const INITIAL_PAGE = "INITIAL_PAGE";
 export const FILTER = 'FILTER';
 export const ORDER  = 'ORDER';
 export const GROUP  = 'GROUP';
+export const SOURCE  = 'SOURCE';

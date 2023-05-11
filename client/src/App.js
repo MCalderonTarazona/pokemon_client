@@ -10,7 +10,7 @@ import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { allCharacters, order, group, filter } from "./redux/Actions/actions";
+import { allCharacters, order, group, filter, source } from "./redux/Actions/actions";
 
 function App() {
 
@@ -85,7 +85,7 @@ function App() {
     createPokemoData();
   }, []);
 
-let { filterTypes, filterOrder }  = useSelector(state => state);
+let { filterTypes, filterOrder, filterSource }  = useSelector(state => state);
 
 const onSearch = async ({type,text}) => {
     let URL= "";
@@ -95,12 +95,14 @@ const onSearch = async ({type,text}) => {
        const { data } = await axios(`${URL}${text}`)
        if (type === "name") {
           dispatch(allCharacters({text:text, data:data}));
-          dispatch(filter(filterTypes));
+          dispatch(source(filterSource));
+          //dispatch(filter(filterTypes));
           dispatch(order(filterOrder));
        } else {
           dispatch(allCharacters({text:text, data:[data]}));
           dispatch(group("id"));
-          dispatch(filter(filterTypes));
+          dispatch(source(filterSource));
+          //dispatch(filter(filterTypes));
           dispatch(order(filterOrder));
        }
       } catch (error) {
@@ -110,8 +112,7 @@ const onSearch = async ({type,text}) => {
 
  const location = useLocation();
  const background = location.state && location.state.background;
- console.log(location);
- console.log(background);
+
   return (
     <div className='App'>
       <Nav logout={logout}/>
