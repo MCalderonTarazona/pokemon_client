@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Nav = ({logout}) => {
 
 const { pathname } = useLocation();
-if (pathname === "/" || pathname === "/user") {
+if (pathname === "/" || pathname === "/user" ) {
     return null;
 }
 

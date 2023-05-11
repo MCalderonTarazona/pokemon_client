@@ -4,6 +4,7 @@ import CreateUser from './components/CreateUser/CreateUser';
 import Search from './components/Search/Search';
 import Nav from './components/Nav/Nav';
 import CreatePokemon from './components/CreatePokemon/CreatePokemon';
+import Error from './components/Error/Error';
 import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
@@ -23,6 +24,7 @@ function App() {
       });
   }, []);
 
+  
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
 
@@ -108,7 +110,8 @@ const onSearch = async ({type,text}) => {
 
  const location = useLocation();
  const background = location.state && location.state.background;
- 
+ console.log(location);
+ console.log(background);
   return (
     <div className='App'>
       <Nav logout={logout}/>
@@ -116,6 +119,7 @@ const onSearch = async ({type,text}) => {
         <Route path='/' element={<Login accessLogin={accessLogin}/>} />
         <Route path='/home' element={<><Cards onSearch={onSearch} /><Search onSearch={onSearch} /></>} />
         <Route path='/user' element={<CreateUser createUsers={createUsers}/>} />
+        <Route path='*' element={<Error />} />
       </Routes>
       {location && (
       <Routes>
