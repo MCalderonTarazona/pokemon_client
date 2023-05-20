@@ -37,7 +37,7 @@ const [errors,setErrors] = useState({
 
 useEffect(() => {
     axios
-        .get(`http://localhost:3001/types`)
+        .get(`https://pokemon-server-2pe0.onrender.com/types`)
         .then((results) => {
         setTypesData({types:results.data})
     });

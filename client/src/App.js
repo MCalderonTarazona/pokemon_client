@@ -17,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/pokemons`)
+      .get(`https://pokemon-server-2pe0.onrender.com/pokemons`)
       .then((results) => {
         dispatch(allCharacters({text:"", data:results.data}));
         dispatch(order(filterOrder));
@@ -31,7 +31,7 @@ function App() {
   const accessLogin = async (userData) => {
     const { email, password } = userData;
     try {
-       const URL = 'http://localhost:3001/user';
+       const URL = 'https://pokemon-server-2pe0.onrender.com/user';
        const { data } = await axios(URL + `?email=${email}&password=${password}`);
        const { access } = data;
        setSuccess(access);
@@ -52,7 +52,7 @@ function App() {
 
   const createUsers = async (userData) => {
     try {
-       const URL = 'http://localhost:3001/user';
+       const URL = 'https://pokemon-server-2pe0.onrender.com/user';
        const { data } = await axios.post(URL,userData);
        const { access } = data;
        access && window.alert("User created successfully");
@@ -63,7 +63,7 @@ function App() {
 
   const createPokemon = async (userData) => {
     try {
-       const URL = 'http://localhost:3001/pokemons';
+       const URL = 'https://pokemon-server-2pe0.onrender.com/pokemons';
        const { data } = await axios.post(URL,userData);
        const { access } = data;
        access && window.alert("Pokemon created successfully");
@@ -74,7 +74,7 @@ function App() {
 
   const createPokemoData = () => {
     axios
-      .get(`http://localhost:3001/pokemons`)
+      .get(`https://pokemon-server-2pe0.onrender.com/pokemons`)
       .then((results) => {
         dispatch(allCharacters({text:"", data:results.data}));
         dispatch(order(filterOrder));
@@ -89,7 +89,7 @@ let { filterTypes, filterOrder, filterSource }  = useSelector(state => state);
 
 const onSearch = async ({type,text}) => {
     let URL= "";
-    type === "name" && typeof text === "string" ? URL="http://localhost:3001/pokemons?name=" : URL="http://localhost:3001/pokemons/"
+    type === "name" && typeof text === "string" ? URL="https://pokemon-server-2pe0.onrender.com/pokemons?name=" : URL="https://pokemon-server-2pe0.onrender.com/pokemons/"
  
    try {
        const { data } = await axios(`${URL}${text}`)
